@@ -1,69 +1,139 @@
-import Image from "next/image";
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
+  const services = [
+    {
+      title: '해충방역서비스',
+      description: 'AI 기술로 정확히 진단하고 맞춤형 방역 솔루션을 제공합니다.',
+      image: '/images/services/service_1.jpg',
+      href: '/services/pest-control',
+      icon: '🐭',
+    },
+    {
+      title: '바이러스살균서비스',
+      description: 'VK130으로 수족구, 독감 등 계절성 바이러스를 완벽히 제거합니다.',
+      image: '/images/services/service_2.jpg',
+      href: '/services/disinfection',
+      icon: '🦠',
+    },
+    {
+      title: '완구소독서비스',
+      description: '유치원/어린이집 개학 전 완구와 교실을 완벽하게 살균합니다.',
+      image: '/images/services/service_3.jpg',
+      href: '/services/toy-cleaning',
+      icon: '🧸',
+    },
+  ];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <>
+      {/* Hero Section */}
+      <section className="relative h-[500px] overflow-hidden bg-gradient-to-r from-blue-600 to-blue-800 text-white">
         <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
+          src="/images/banners/banner_latest.png"
+          alt="이지케어 메인 배너"
+          fill
+          className="object-cover opacity-40"
           priority
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-10">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            건강한 공간을 만드는 방역 전문가
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-lg md:text-xl mb-8 max-w-2xl">
+            AI 기술과 VK130으로 해충, 바이러스, 완구까지 안전하게 관리합니다.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/contact"
+            className="bg-white text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            무료 상담 신청
+          </Link>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* 3대 차별화 포인트 */}
+      <section className="py-24 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-16">이지케어만의 차별화</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="text-4xl mb-4">🤖</div>
+              <h3 className="text-xl font-bold mb-2">AI 기술</h3>
+              <p className="text-gray-600">
+                카메라로 촬영한 벌레를 AI가 정확히 인식하고 정보를 제공합니다.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="text-4xl mb-4">✨</div>
+              <h3 className="text-xl font-bold mb-2">VK130 독점</h3>
+              <p className="text-gray-600">
+                이지케어만 사용하는 안전한 살균제로 99.999% 살균 효과를 보장합니다.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="text-4xl mb-4">👶</div>
+              <h3 className="text-xl font-bold mb-2">완구소독</h3>
+              <p className="text-gray-600">
+                유치원/어린이집 전문 완구소독으로 아이들의 건강을 지킵니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 주요 서비스 */}
+      <section className="py-24">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">주요 서비스</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {services.map((service) => (
+              <Link
+                key={service.href}
+                href={service.href}
+                className="group overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition"
+              >
+                <div className="relative h-48 overflow-hidden bg-gray-200">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition duration-300"
+                  />
+                </div>
+                <div className="p-6 bg-white">
+                  <div className="text-3xl mb-2">{service.icon}</div>
+                  <h3 className="text-xl font-bold mb-2 text-gray-800">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600">{service.description}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-blue-600 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-4">
+            더 안전한 공간을 원하신가요?
+          </h2>
+          <p className="text-lg mb-8">
+            이지케어의 전문가에게 무료 상담을 받아보세요.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition"
+          >
+            상담신청하기
+          </Link>
+        </div>
+      </section>
+    </>
   );
 }
